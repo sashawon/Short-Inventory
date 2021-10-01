@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 30, 2021 at 11:39 AM
+-- Generation Time: Oct 01, 2021 at 10:10 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -42,7 +42,8 @@ CREATE TABLE `brands` (
 INSERT INTO `brands` (`id`, `brand_name`, `status`, `created_at`, `updated_at`) VALUES
 (4, 'Walton', '1', '2021-09-30 03:30:03', '2021-09-30 03:30:03'),
 (5, 'Samsnug', '1', '2021-09-30 03:30:11', '2021-09-30 03:30:17'),
-(6, 'Realme', '1', '2021-09-30 03:30:30', '2021-09-30 03:30:30');
+(6, 'Realme', '1', '2021-09-30 03:30:30', '2021-09-30 03:30:30'),
+(7, 'Lenovos', '1', '2021-09-30 10:37:12', '2021-09-30 10:37:24');
 
 -- --------------------------------------------------------
 
@@ -53,7 +54,6 @@ INSERT INTO `brands` (`id`, `brand_name`, `status`, `created_at`, `updated_at`) 
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `category_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `category_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -63,10 +63,10 @@ CREATE TABLE `categories` (
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `category_name`, `category_slug`, `status`, `created_at`, `updated_at`) VALUES
-(3, 'TV', 'tv', 1, '2021-09-30 03:27:12', '2021-09-30 03:30:43'),
-(4, 'Mobile', 'mobile', 1, '2021-09-30 03:27:27', '2021-09-30 03:31:03'),
-(5, 'Light', 'light', 1, '2021-09-30 03:29:37', '2021-09-30 03:31:14');
+INSERT INTO `categories` (`id`, `category_name`, `status`, `created_at`, `updated_at`) VALUES
+(3, 'TV', 1, '2021-09-30 03:27:12', '2021-09-30 03:30:43'),
+(4, 'Mobile', 1, '2021-09-30 03:27:27', '2021-09-30 03:31:03'),
+(5, 'Light', 1, '2021-09-30 03:29:37', '2021-09-30 03:31:14');
 
 -- --------------------------------------------------------
 
@@ -108,6 +108,7 @@ CREATE TABLE `expenses` (
   `employee_id` int(11) NOT NULL,
   `mobile` int(20) NOT NULL,
   `qty` int(11) NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -116,9 +117,12 @@ CREATE TABLE `expenses` (
 -- Dumping data for table `expenses`
 --
 
-INSERT INTO `expenses` (`id`, `product_id`, `employee_id`, `mobile`, `qty`, `created_at`, `updated_at`) VALUES
-(2, 3, 4, 1928788735, 2, '2021-09-30 03:37:40', '2021-09-30 03:37:40'),
-(3, 4, 5, 1318600735, 3, '2021-09-30 03:38:08', '2021-09-30 03:38:14');
+INSERT INTO `expenses` (`id`, `product_id`, `employee_id`, `mobile`, `qty`, `status`, `created_at`, `updated_at`) VALUES
+(17, 3, 4, 1928788735, 5, 'Assign', '2021-10-01 08:53:03', '2021-10-01 08:53:03'),
+(18, 4, 4, 1928788735, 5, 'Assign', '2021-10-01 08:53:22', '2021-10-01 08:53:22'),
+(19, 5, 5, 1318600735, 20, 'Assign', '2021-10-01 08:53:55', '2021-10-01 08:53:55'),
+(20, 5, 5, 1318600735, 3, 'Repair', '2021-10-01 08:57:45', '2021-10-01 09:05:43'),
+(21, 5, 4, 1928788735, 7, 'Damage', '2021-10-01 08:58:56', '2021-10-01 08:58:56');
 
 -- --------------------------------------------------------
 
@@ -171,8 +175,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `sku`, `name`, `slug`, `category_id`, `brand_id`, `type`, `qty`, `desc`, `m_date`, `exp_date`, `status`, `created_at`, `updated_at`) VALUES
-(3, 'realme5pro', 'Realme 5 Pro', 'realme5pro', 4, 6, 'Fixed', 10, 'The price of this smartphone is ৳20,500 BDT. Realme 5 Pro comes with 4035 mAh battery and 6.3 inches, display. The back camera is of Quad 48+8+2+2 Megapixel.', '2021-08-01', '2022-08-01', 1, '2021-09-30 03:33:47', '2021-09-30 03:33:47'),
-(4, 'WE55RUG (1.397m) 4K Smart', 'WE55RUG (1.397m) 4K Smart', 'WE55RUG (1.397m) 4K Smart', 3, 4, 'Fixed', 5, '- TV Replacement Guarantee : 6 Months (Condition Applicable)\r\n- LED Panel: 5 Years\r\n- Spare Parts: 5 Years\r\n- Free Service: 5 Years\r\n\r\nNote: This warranty does not cover any damage due to accident, electricity fault, natural causes or negligence. And Authority keeps the power to change, expand, correct, stop or cancel the warranty period without any prior notice.', '2021-09-01', '2026-09-30', 1, '2021-09-30 03:35:39', '2021-09-30 03:35:39');
+(3, 'realme5pro', 'Realme 5 Pro', 'realme5pro', 4, 6, 'Fixed', 15, 'The price of this smartphone is ৳20,500 BDT. Realme 5 Pro comes with 4035 mAh battery and 6.3 inches, display. The back camera is of Quad 48+8+2+2 Megapixel.', '2021-08-01', '2022-08-01', 1, '2021-09-30 03:33:47', '2021-09-30 03:33:47'),
+(4, 'WE55RUG (1.397m) 4K Smart', 'WE55RUG (1.397m) 4K Smart', 'WE55RUG (1.397m) 4K Smart', 3, 4, 'Fixed', 10, '- TV Replacement Guarantee : 6 Months (Condition Applicable)\r\n- LED Panel: 5 Years\r\n- Spare Parts: 5 Years\r\n- Free Service: 5 Years\r\n\r\nNote: This warranty does not cover any damage due to accident, electricity fault, natural causes or negligence. And Authority keeps the power to change, expand, correct, stop or cancel the warranty period without any prior notice.', '2021-09-01', '2026-09-30', 1, '2021-09-30 03:35:39', '2021-09-30 03:35:39'),
+(5, 'Nokia1200', 'Nokia 1200', 'Nokia1200', 4, 7, 'Fixed', 20, 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.', '2021-09-01', '2023-09-01', 1, '2021-09-30 10:38:55', '2021-10-01 07:40:15');
 
 --
 -- Indexes for dumped tables
@@ -222,13 +227,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `employees`
@@ -240,7 +245,7 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `expenses`
 --
 ALTER TABLE `expenses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -252,7 +257,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

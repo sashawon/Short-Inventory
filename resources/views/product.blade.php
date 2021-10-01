@@ -10,7 +10,7 @@
     <div class="overview-wrap m-t-30">
         <a class="btn btn-success" href="{{url('/product/manage_product')}}">ADD PRODUCT</a>
     </div>
-	<div class="row m-t-30">
+    <div class="row m-t-30">
 	    <div class="col-12">
 	    	@if(session()->has('msg'))
 	    	<div class="sufee-alert alert with-close alert-warning alert-dismissible fade show">
@@ -22,7 +22,7 @@
 	    	@endif
             <!-- DATA TABLE-->
 	        <div class="table-responsive m-b-40">
-	            <table class="table table-borderless table-data3">
+	            <table id="table" class="table table-borderless table-data3">
 	                <thead>
 	                    <tr>
 	                        <th>No</th>

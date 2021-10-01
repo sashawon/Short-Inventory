@@ -1,14 +1,11 @@
 @extends('layout')
-@section('page_title','Manage Stoke Out')
-@section('expense_select','active')
+@section('page_title','Manage Damage')
+@section('damage_select','active')
 
 @section('container')
 <div class="col-12">
     <div class="overview-wrap">
-        <h2 class="title-1">Manage Stoke Out</h2>
-    </div>
-    <div class="overview-wrap m-t-30">
-        <a class="btn btn-success" href="{{url('/expense/manage_expense')}}">ADD STOKE OUT</a>
+        <h2 class="title-1">Manage Damage</h2>
     </div>
 	<div class="row m-t-30">
 	    <div class="col-12">
@@ -51,8 +48,8 @@
 	                        <td>{{$list->qty}}</td>
 	                        <td>{{$list->status}}</td>
 	                        <td>
-	                        	<a class="btn btn-success" href="{{url('/expense/manage_expense')}}/{{$list->id}}">Edit</a>
-	                        	<a class="btn btn-danger" href="{{url('/expense/delete')}}/{{$list->id}}">Delete</a>
+	                        	<a class="btn btn-success" href="{{url('/damage/manage_damage')}}/{{$list->id}}">Edit</a>
+	                        	<a class="btn btn-danger" href="{{url('/damage/delete')}}/{{$list->id}}">Delete</a>
 	                        </td>
 	                    </tr>
 	                    @endforeach

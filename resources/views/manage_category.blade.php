@@ -17,22 +17,11 @@
                     <form action="{{route('category.manage_category_process')}}" method="post" enctype= multipart/form-data>
                         @csrf
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12">
                                 <div class="form-group">
                                     <label for="category_name" class="control-label mb-1">Category</label>
                                     <input id="category_name" name="category_name" type="text" class="form-control" value="{{$category_name}}" required="">
                                     @error('category_name')
-                                        <div class="alert alert-danger" role="alert">
-                                            {{$message}}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="category_slug" class="control-label mb-1">Category Slug</label>
-                                    <input id="category_slug" name="category_slug" type="text" class="form-control" value="{{$category_slug}}" required="">
-                                    @error('category_slug')
                                         <div class="alert alert-danger" role="alert">
                                             {{$message}}
                                         </div>

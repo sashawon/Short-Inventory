@@ -31,13 +31,11 @@ class CategoryController extends Controller
 
             $result['id'] = $arr['0']->id;
             $result['category_name'] = $arr['0']->category_name;
-            $result['category_slug'] = $arr['0']->category_slug;
             
             $result['category']=DB::table('categories')->where(['status'=>1])->where('id','!=',$id)->get();
         } else {
             $result['id'] = 0;
             $result['category_name'] = '';
-            $result['category_slug'] = '';
 
             $result['category']=DB::table('categories')->where(['status'=>1])->get();
         }
@@ -48,8 +46,7 @@ class CategoryController extends Controller
     public function manage_category_process(Request $request)
     {
         $request->validate([
-            'category_name'=>'required',
-            'category_slug'=>'required|unique:categories,category_slug,'.$request->post('id')
+            'category_name'=>'required'
         ]);
 
         if ($request->post('id')>0) {
@@ -61,7 +58,6 @@ class CategoryController extends Controller
         }
         
         $model->category_name = $request->post('category_name');
-        $model->category_slug = $request->post('category_slug');
         $model->status = 1;
         $model->save();
         session()->flash('msg',$msg);

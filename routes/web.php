@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
@@ -19,12 +20,9 @@ use App\Http\Controllers\EmployeeController;
 |
 */
 
-Route::get('/', function () {
-    return view('/dashboard');
-});
-Route::get('/dashboard', function () {
-    return view('/dashboard');
-});
+
+Route::get('/',[Dashboard::class,'index']);
+Route::get('/dashboard',[Dashboard::class,'index']);
 
 Route::get('/category',[CategoryController::class,'index']);
 Route::get('/category/manage_category',[CategoryController::class,'manage_category']);
@@ -55,6 +53,21 @@ Route::get('/expense/manage_expense/{id}',[ExpenseController::class,'manage_expe
 Route::get('/expense/status/{status}/{id}',[ExpenseController::class,'status']);
 Route::post('/expense/manage_expense_process',[ExpenseController::class,'manage_expense_process'])->name('expense.manage_expense_process');
 Route::get('/expense/delete/{id}',[ExpenseController::class,'destroy']);
+
+Route::get('/assign',[ExpenseController::class,'assign']);
+Route::get('/assign/manage_assign/{id}',[ExpenseController::class,'manage_assign']);
+Route::post('/assign/manage_assign_process',[ExpenseController::class,'manage_assign_process'])->name('assign.manage_assign_process');
+Route::get('/assign/delete/{id}',[ExpenseController::class,'assign_destroy']);
+
+Route::get('/repair',[ExpenseController::class,'repair']);
+Route::get('/repair/manage_repair/{id}',[ExpenseController::class,'manage_repair']);
+Route::post('/repair/manage_repair_process',[ExpenseController::class,'manage_repair_process'])->name('repair.manage_repair_process');
+Route::get('/repair/delete/{id}',[ExpenseController::class,'repair_destroy']);
+
+Route::get('/damage',[ExpenseController::class,'damage']);
+Route::get('/damage/manage_damage/{id}',[ExpenseController::class,'manage_damage']);
+Route::post('/damage/manage_damage_process',[ExpenseController::class,'manage_damage_process'])->name('damage.manage_damage_process');
+Route::get('/damage/delete/{id}',[ExpenseController::class,'damage_destroy']);
 
 Route::get('/employee',[EmployeeController::class,'index']);
 Route::get('/employee/manage_employee',[EmployeeController::class,'manage_employee']);

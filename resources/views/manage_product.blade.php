@@ -4,15 +4,6 @@
 
 @section('container')
 
-@if($id<0)
-    @php
-        $image_required = 'required'
-    @endphp
-@else
-    @php
-        $image_required = ''
-    @endphp
-@endif
 <div class="col-12">
     <div class="overview-wrap">
         <h2 class="title-1">Add Product</h2>
@@ -191,4 +182,8 @@
         </div>
 	</div>
 </div>
+
+<script>
+    CKEDITOR.replace('desc');
+</script>
 @endsection

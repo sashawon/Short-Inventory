@@ -1,20 +1,20 @@
 @extends('layout')
-@section('page_title','Add Stoke Out')
-@section('expense_select','active')
+@section('page_title','Update Damage')
+@section('damage_select','active')
 
 @section('container')
 <div class="col-12">
     <div class="overview-wrap">
-        <h2 class="title-1">Add Stoke Out</h2>
+        <h2 class="title-1">Update Damage</h2>
     </div>
     <div class="overview-wrap m-t-30">
-        <a class="btn btn-success" href="{{url('/expense')}}">BACK</a>
+        <a class="btn btn-success" href="{{url('/damage')}}">BACK</a>
     </div>
 	<div class="row m-t-30">
 	    <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{route('expense.manage_expense_process')}}" method="post" enctype= multipart/form-data>
+                    <form action="{{route('damage.manage_damage_process')}}" method="post" enctype= multipart/form-data>
                         @csrf
                         <div class="row">
                             <div class="col-12">

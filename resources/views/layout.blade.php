@@ -24,7 +24,10 @@
     <link href="{{asset('assets/vendor/slick/slick.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('assets/vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('assets/vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
-
+    
+    <!-- Data Table-->
+    <link href="{{asset('assets/vendor/datatable/datatables.min.css')}}" rel="stylesheet" type="text/css">
+ 
     <!-- Main CSS-->
     <link href="{{asset('assets/css/theme.css')}}" rel="stylesheet" media="all">
 
@@ -67,7 +70,19 @@
                         </li>
                         <li class="@yield('expense_select')">
                             <a href="{{url('/expense')}}">
-                                <i class="fas fa-hands-helping"></i>Expense</a>
+                                <i class="fas fa-hands-helping"></i>Stoke Out</a>
+                        </li>
+                        <li class="@yield('assign_select')">
+                            <a href="{{url('/assign')}}">
+                                <i class="fas fa-hand-holding-usd"></i>Assign</a>
+                        </li>
+                        <li class="@yield('repair_select')">
+                            <a href="{{url('/repair')}}">
+                                <i class="fas fa-tools"></i>Repair</a>
+                        </li>
+                        <li class="@yield('damage_select')">
+                            <a href="{{url('/damage')}}">
+                                <i class="fas fa-book-dead"></i>Damage</a>
                         </li>
                         <li class="@yield('employee_select')">
                             <a href="{{url('/employee')}}">
@@ -105,7 +120,19 @@
                         </li>
                         <li class="@yield('expense_select')">
                             <a href="{{url('/expense')}}">
-                                <i class="fas fa-hands-helping"></i>Expense</a>
+                                <i class="fas fa-hands-helping"></i>Stoke Out</a>
+                        </li>
+                        <li class="@yield('assign_select')">
+                            <a href="{{url('/assign')}}">
+                                <i class="fas fa-hand-holding-usd"></i>Assign</a>
+                        </li>
+                        <li class="@yield('repair_select')">
+                            <a href="{{url('/repair')}}">
+                                <i class="fas fa-tools"></i>Repair</a>
+                        </li>
+                        <li class="@yield('damage_select')">
+                            <a href="{{url('/damage')}}">
+                                <i class="fas fa-book-dead"></i>Damage</a>
                         </li>
                         <li class="@yield('employee_select')">
                             <a href="{{url('/employee')}}">
@@ -199,9 +226,18 @@
     <script src="{{asset('assets/vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
     <script src="{{asset('assets/vendor/chartjs/Chart.bundle.min.js')}}"></script>
     <script src="{{asset('assets/vendor/select2/select2.min.js')}}"></script>
+    
+    <!-- Data Table-->
+    <script type="text/javascript" src="{{asset('assets/vendor/datatable/datatables.min.js')}}"></script>
 
     <!-- Main JS-->
     <script src="{{asset('assets/js/main.js')}}"></script>
+
+    <script type="text/javascript">
+    $(document).ready( function () {
+        $('#table').DataTable();
+    } );
+</script>
 
 </body>
 

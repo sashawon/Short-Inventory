@@ -22,12 +22,11 @@
 	    	@endif
             <!-- DATA TABLE-->
 	        <div class="table-responsive m-b-40">
-	            <table class="table table-borderless table-data3">
+	            <table id="table" class="table table-borderless table-data3">
 	                <thead>
 	                    <tr>
 	                        <th>ID</th>
 	                        <th>Category Name</th>
-	                        <th>Category Slug</th>
 	                        <th>Action</th>
 	                    </tr>
 	                </thead>
@@ -39,7 +38,6 @@
 	                    <tr>
 	                        <td>{{$i++}}</td>
 	                        <td>{{$list->category_name}}</td>
-	                        <td>{{$list->category_slug}}</td>
 	                        <td>
 	                        	@if($list->status==1)
 	                        		<a class="btn btn-primary" href="{{url('/category/status/0')}}/{{$list->id}}">Active</a>

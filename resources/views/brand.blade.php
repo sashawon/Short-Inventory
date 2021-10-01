@@ -22,7 +22,7 @@
 	    	@endif
             <!-- DATA TABLE-->
 	        <div class="table-responsive m-b-40">
-	            <table class="table table-borderless table-data3">
+	            <table id="table" class="table table-borderless table-data3">
 	                <thead>
 	                    <tr>
 	                        <th>ID</th>
